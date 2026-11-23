@@ -16,5 +16,6 @@ Tested against the judge model itself (z-ai/glm-5.3-flash, the model the rules n
 - [x] Letter chosen by simulation against the judge model
 - [x] `main.py` written and tested locally (gate: exactly 1 UTF-8 char, not whitespace)
 - [x] Repo created and pushed (public, MIT, 3 make.fun badges)
-- [ ] `makefun check` — see report for the transcripts situation
+- [x] `makefun check` run 24 Nov ~05:12 WIB: 4 passed (competition_open, snapshot 4 files / 7.759 bytes, license_osi MIT, entrypoint main.py → python3.13); 1 failed — transcripts_present (no bundle yet, see below); 14 transcript checks skipped; 5 checks deferred to submission (repo_public, repo_owner, repo_created_after_open, commit_in_repo, duplicate_snapshot)
+- [ ] Transcripts bundle: CANNOT be finished inside this run — bundle found this session but reports 0 usage rows; usage rows are written only when this run's messages are delivered. The top-level agent must, after this run ends: run the muse.db SELECT for usage rows (this subagent id 884a1d66-1ef3-4a2a-8542-7df1bebb6fbe + the parent agent id), then `bundle --repo <dev> --muse-app-dir ~/agents --out transcripts.tar.gz`, then `check --kit <kit> --repo <dev> --transcripts transcripts.tar.gz` again.
 - [ ] NOT submitted — submit only on the user's explicit green light
