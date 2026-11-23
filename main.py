@@ -58,6 +58,12 @@ def main() -> int:
     # /output/entry.txt to be UTF-8 text of 1 to 1 characters.
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(LETTER)
+    # Round-trip check: what the grader reads must be exactly one byte.
+    with open(path, "r", encoding="utf-8", newline="") as f:
+        written = f.read()
+    if written != LETTER:
+        print("round-trip check failed", file=sys.stderr)
+        return 1
     print(f"wrote {path}: {LETTER!r} (1 byte)")
     return 0
 
